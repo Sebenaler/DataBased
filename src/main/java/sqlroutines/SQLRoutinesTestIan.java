@@ -1,3 +1,5 @@
+package sqlroutines;
+
 import java.sql.*;
 //import org.junit.*;
 import oracle.jdbc.*;
@@ -7,7 +9,8 @@ import oracle.jdbc.*;
 public class SQLRoutinesTestIan {
   public static void main(String[] args) {
         SQLRoutinesIan s = new SQLRoutinesIan();
-  s.viewTeamRoster("THE JETS");
+  //String r = s.viewTeamRoster("THE JETS");
+  System.out.println(s.viewTeamRoster("THE JETS"));
     }
   
   
