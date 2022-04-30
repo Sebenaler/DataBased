@@ -53,20 +53,35 @@ public class SQLRoutinesJoe
 	  }
 
   private PreparedStatement preparedStmt;
-  public boolean loginPlayer(String email, String pass) throws SQLException{
-	    	String queryString = "select DataBased.login_Func(?,?)";
-	    	preparedStmt = myConnection.prepareStatement(queryString);
+  public boolean loginPlayer(String email, String pass){
+	  try {
+		  	loggedIn = false;
+		  	PreparedStatement preparedStmt;
+		  	Connection con = openDBConnection();
+	    	String queryString = "select loggedIn(?,?) as Num from dual";
+	    	preparedStmt = con.prepareStatement(queryString);
 	    	preparedStmt.clearParameters();
 	    	preparedStmt.setString(1,email);
 	    	preparedStmt.setString(2,pass);
 	    	result = preparedStmt.executeQuery();
 	    	if(result.next())
 	    	{
-	    		loggedIn = true;
+	    		if(result.getInt(1)==-1) 
+	    		{
+	    			loggedIn = true;
+	    		}
 	    	}
+	    	
+	    	System.out.println(loggedIn);
 	    	result.close();
 	    	preparedStmt.close();
-	    	return loggedIn;
+	    	
+	  }
+	  catch(SQLException e)
+	  {
+		  System.out.println(e);
+	  }
+	  return loggedIn;
   }
 	  /**
 	   * sets loggedIn instance field to false
@@ -78,6 +93,7 @@ public class SQLRoutinesJoe
 	    
 	    this.loggedIn = false;
 	  }
+
 }
 
   
