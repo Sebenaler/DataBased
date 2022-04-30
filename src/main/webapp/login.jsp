@@ -8,8 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<f:view>
-
-</f:view>
+<h1>
+	<%SQLRoutinesJoe j = new SQLRoutinesJoe();
+	j.loginPlayer(email,pass);
+	%>
+	href;
+</h1>
 </body>
 </html>
