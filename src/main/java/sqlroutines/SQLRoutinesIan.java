@@ -49,17 +49,8 @@ public class SQLRoutinesIan implements Serializable {
 //  }
 //    
   public String viewTeamRoster(String tn) {
-      
     try{
-    //A string to hold the SQL statement....
-
     String queryString = "select u.first, u.last from player_table u, plays_on p where u.player_id = p.player_id and p.team_name = '" + tn + "'";
-    //Create a prepared statement using the connection object...must specify an SQL string as an arguement
-    /*PreparedStatement preparedStmt;
-    Connection con = openDBConnection();
-    preparedStmt = con.prepareStatement(queryString);
-    ResultSet result;
-    result = preparedStmt.executeQuery();*/
     Connection con = openDBConnection();
     Statement stmt;
     String result1 = "";
@@ -68,13 +59,9 @@ public class SQLRoutinesIan implements Serializable {
     ResultSet result = stmt.executeQuery(queryString);
     
     while (result.next()){    
-    	result1 = result.getString(1);
+    	result1 += result.getString(1);
       System.out.println(result.getString(1));
     }
-    
-    //result.close();
-    //preparedStmt.close();
-    //con.close();
     }
 return result1;
     }
@@ -82,6 +69,23 @@ return result1;
        System.out.println(e); 
        return null;
     }
+  }
+  
+  public boolean addNewStoreItem(String i_num, String i_name, double p, String i_desc, int q) {
+	  try{
+		    String queryString = "execute insert_new_item('"+ i_num +"','"+i_name+"',"+p+", '"+i_desc+"', "+q+")";
+		    Connection con = openDBConnection();
+		    Statement stmt;
+		    if (con != null) {
+		    stmt = con.createStatement();
+		    stmt.executeQuery(queryString);
+		    }
+		    return true;
+		    }
+		    catch(SQLException e){
+		       System.out.println(e); 
+		       return false;
+		   }
   }
 
 }
