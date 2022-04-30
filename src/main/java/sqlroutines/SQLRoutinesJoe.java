@@ -11,7 +11,6 @@ public class SQLRoutinesJoe
 	private String email;
 	private String pass;
 	
-	private boolean loggedIn = false;
 	
 	public String getEmail()
 	{
@@ -48,33 +47,27 @@ public class SQLRoutinesJoe
 	    return null;
 	  }
 
-  
+  private boolean loggedIn = false;
   public Boolean isLoggedIn() {
 	    return this.loggedIn;
 	  }
-  
-  public boolean loginPlayer(String email, String pass){
-	    try{
-	    ResultSet result;
-	    Statement stmt;
-	    Connection con = openDBConnection();
-	    stmt = con.createStatement();
-	    String queryString = "execute login_func('"+this.getEmail()+"','"+this.getPass()+"')";
-	    result = stmt.executeQuery(queryString);
-	    while (result.next()){
-	      this.loggedIn = true;
-	      System.out.print(result);
-//	      
-	    }
-	    result.close();
-	    stmt.close();
-	    }
-	    catch(SQLException e){
-	     System.out.println(e); 
-	    }
-	    return this.loggedIn;
-	  }
-	  
+
+  private PreparedStatement preparedStmt;
+  public boolean loginPlayer(String email, String pass) throws SQLException{
+	    	String queryString = "select DataBased.login_Func(?,?)";
+	    	preparedStmt = myConnection.prepareStatement(queryString);
+	    	preparedStmt.clearParameters();
+	    	preparedStmt.setString(1,email);
+	    	preparedStmt.setString(2,pass);
+	    	result = preparedStmt.executeQuery();
+	    	if(result.next())
+	    	{
+	    		loggedIn = true;
+	    	}
+	    	result.close();
+	    	preparedStmt.close();
+	    	return loggedIn;
+  }
 	  /**
 	   * sets loggedIn instance field to false
 	   * @throws IllegalStateException if then method is called when loggedIn = false
