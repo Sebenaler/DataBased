@@ -3,20 +3,16 @@
    <%@page import="java.io.*" %>
    <%@page import="java.sql.*" %>
    <%@page import="oracle.jdbc.*" %>
-  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>View Team Roster</title>
+<title>View Store Items</title>
 </head>
 <body>
-<h1>
 <% SQLRoutinesIan s = new SQLRoutinesIan();
-String result1 = s.viewTeamRoster("THE JETS");
+String r = s.viewStoreItems();
 %>
-<%=result1%>
-
-</h1>
+<%=r %>
 </body>
 </html>
