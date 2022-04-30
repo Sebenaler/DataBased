@@ -73,13 +73,24 @@ return result1;
   
   public boolean addNewStoreItem(String i_num, String i_name, double p, String i_desc, int q) {
 	  try{
-		    String queryString = "execute insert_new_item('"+ i_num +"','"+i_name+"',"+p+", '"+i_desc+"', "+q+")";
+		  	CallableStatement callStmt;
+		  	Connection con = openDBConnection();
+		  	callStmt = con.prepareCall(" {call insert_new_item(?,?,?,?,?)}");
+		    callStmt.setString(1,i_num);
+		    callStmt.setString(2,i_name);
+		    callStmt.setDouble(3,p);
+		    callStmt.setString(4,i_desc);
+		    callStmt.setInt(5,q);
+		    callStmt.execute();
+		  
+		  /*
+		    String queryString = "execute DataBased.insert_new_item('"+ i_num +"','"+i_name+"',"+p+", '"+i_desc+"', "+q+")";
 		    Connection con = openDBConnection();
 		    Statement stmt;
 		    if (con != null) {
 		    stmt = con.createStatement();
 		    stmt.executeQuery(queryString);
-		    }
+		    }*/
 		    return true;
 		    }
 		    catch(SQLException e){
@@ -87,5 +98,28 @@ return result1;
 		       return false;
 		   }
   }
+  public String viewPlayerProfile(String p_id) {
+	  try{
+		    String queryString = "select u.first, u.last, u.email, u.player_year, u.player_description,u.social_media, u.ign from player_table u, where u.player_id = '" + p_id + "'";
+		    Connection con = openDBConnection();
+		    Statement stmt;
+		    String result1 = "";
+		    if (con != null) {
+		    stmt = con.createStatement();
+		    ResultSet result = stmt.executeQuery(queryString);
+		    
+		    while (result.next()){    
+		    	result1 += result.getString(1);
+		      System.out.println(result.getString(1));
+		    }
+		    }
+		return result1;
+		    }
+		    catch(SQLException e){
+		       System.out.println(e); 
+		       return null;
+		    }
+	  }
+  
 
 }

@@ -11,6 +11,9 @@
 <title>Add New Store Item</title>
 </head>
 <body>
-
+<% SQLRoutinesIan s = new SQLRoutinesIan();
+boolean r = s.addNewStoreItem("0005","razer naga", 56.99, "razer naga mouse", 15);
+%>
+<%=r %>
 </body>
 </html>
