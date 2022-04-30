@@ -102,7 +102,7 @@ return result1;
   }
   public String viewPlayerProfile(String p_id) {
 	  try{
-		    String queryString = "select u.first, u.last, u.email, u.player_year, u.player_description,u.social_media, u.ign from player_table u, where u.player_id = '" + p_id + "'";
+		    String queryString = "select u.first, u.last, u.email, u.player_year, u.player_description,u.social_media, u.ign from player_table u where u.player_id = '" + p_id + "'";
 		    Connection con = openDBConnection();
 		    Statement stmt;
 		    String result1 = "";
@@ -111,7 +111,7 @@ return result1;
 		    ResultSet result = stmt.executeQuery(queryString);
 		    
 		    while (result.next()){    
-		    	result1 += result.getString(1);
+		    	result1 = result.getString(1)+result.getString(2)+result.getString(3)+result.getString(4)+result.getString(5)+result.getString(6)+result.getString(7);
 		      System.out.println(result.getString(1));
 		    }
 		    }
@@ -122,6 +122,27 @@ return result1;
 		       return null;
 		    }
 	  }
-  
+  public String viewStoreItems() {
+	  try{
+		    String queryString = "select * from store_item where quantity <> 0";
+		    Connection con = openDBConnection();
+		    Statement stmt;
+		    String result1 = "";
+		    if (con != null) {
+		    stmt = con.createStatement();
+		    ResultSet result = stmt.executeQuery(queryString);
+		    
+		    while (result.next()){    
+		    	result1 = result.getString(1)+result.getString(2)+result.getString(3)+result.getString(4)+result.getString(5);
+		      System.out.println(result.getString(1));
+		    }
+		    }
+		return result1;
+		    }
+		    catch(SQLException e){
+		       System.out.println(e); 
+		       return null;
+		    }
+	  }
 
 }
