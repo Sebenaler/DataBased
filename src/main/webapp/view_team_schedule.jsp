@@ -17,8 +17,13 @@
 ResultSet result = s.viewTeamSchedule(request.getParameter("team_name"));
 %>
 		<% while (result.next()){    %>
-    	<%=result.getString(1) + " " + result.getString(2) + " " + result.getDate(3) + " " + result.getString(4) + " " + result.getString(5) + " " + result.getString(6)%><br>
-      
+    	<%=result.getString(1) + " " + result.getString(2) + " " + result.getDate(3) + " " + result.getString(4) + " " + result.getString(5) + " " + result.getString(6)%>
+      	<a href="./remove_match.jsp?team_name=<%=result.getString(1) %>"> 
+	<button type="button">Remove Match</button>
+	</a>
+		<a href="./update_match.jsp?team_name=<%=result.getString(1) %>"> 
+	<button type="button">Update Match</button>
+	</a><br>
     <%}%>
 
 	</h1>
