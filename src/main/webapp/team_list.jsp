@@ -11,6 +11,13 @@
 <title>List of All Teams</title>
 </head>
 <body>
+<div style="float:right">
+<form align="right" name="form1" method="post" action="log_out.jsp">
+  <label class="logoutLblPos">
+  <input name="submit2" type="submit" id="submit2" value="log out">
+  </label>
+</form>
+</div>
 <% SQLRoutinesIan s = new SQLRoutinesIan();
 ResultSet result = s.viewTeams();
 %>

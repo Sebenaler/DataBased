@@ -104,7 +104,7 @@ public class SQLRoutinesIan implements Serializable {
   }
   public String viewPlayerProfile(String p_id) {
 	  try{
-		    String queryString = "select u.first, u.last, u.email, u.player_year, u.player_description,u.social_media, u.ign from player_table u where u.player_id = '" + p_id + "'";
+		    String queryString = "select u.first, u.last, u.email, u.player_year, u.player_description,u.social_media, u.ign,u.player_id from player_table u where u.player_id = '" + p_id + "'";
 		    Connection con = openDBConnection();
 		    Statement stmt;
 		    String result1 = "";

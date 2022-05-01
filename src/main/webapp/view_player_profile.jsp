@@ -15,5 +15,8 @@
 String r = s.viewPlayerProfile("05");
 %>
 	<%=r %>
+		<a href="./edit_profile.jsp"> 
+	<button type="button">Edit Profile</button>
+	</a>
 </body>
 </html>
