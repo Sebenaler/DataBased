@@ -1,13 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" import="sqlroutines.*"%>
+<%@page import="java.io.*"%>
+<%@page import="java.sql.*"%>
+<%@page import="oracle.jdbc.*"%>
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Team Schedule</title>
+<meta charset="UTF-8">
+<title>View Team Schedule</title>
 </head>
 <body>
-<f:view>
+<h1>Team Schedule For: <%=request.getParameter("team_name") %></h1>
+	<h3>
+	<% SQLRoutinesBen s = new SQLRoutinesBen();
+ResultSet result = s.viewTeamSchedule(request.getParameter("team_name"));
+%>
+		<% while (result.next()){    %>
+    	<%=result.getString(1) + " " + result.getString(2) + " " + result.getDate(3) + " " + result.getString(4) + " " + result.getString(5) + " " + result.getString(6)%><br>
+      
+    <%}%>
 
-</f:view>
+	</h1>
 </body>
 </html>

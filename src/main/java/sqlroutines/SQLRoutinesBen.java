@@ -194,11 +194,11 @@ public ResultSet viewTeamSchedule(String teamName) {
   String queryString = "SELECT * FROM MATCHES WHERE TEAM_NAME = '"+teamName+"'";
   ResultSet result = stmt.executeQuery(queryString);
   
-  System.out.println(teamName+" SCHEDULE");
-  while(result.next())
-  {
-    System.out.println(result.getString(1)+", " +result.getString(2)+", "+result.getDate(3)+", "+result.getString(4)+", "+result.getString(5)+", "+result.getString(6));
-  }  
+  //System.out.println(teamName+" SCHEDULE");
+  //while(result.next())
+  //{
+  //  System.out.println(result.getString(1)+", " +result.getString(2)+", "+result.getDate(3)+", "+result.getString(4)+", "+result.getString(5)+", "+result.getString(6));
+  //}  
   
   return result;
   //result.close();
