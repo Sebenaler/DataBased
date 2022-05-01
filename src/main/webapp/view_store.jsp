@@ -11,8 +11,13 @@
 </head>
 <body>
 	<% SQLRoutinesIan s = new SQLRoutinesIan();
-String r = s.viewStoreItems();
+ResultSet r = s.viewStoreItems();
 %>
-	<%=r %>
+<%while(r.next()){ %>
+	<%="Item Name: " + r.getString(2) + " Item Price: " + r.getString(3) + " Item Description: " + r.getString(4)%><br>
+	<%} %>
+	<a href="./add_new_store_item.jsp">
+	<button type="button">Add New Store Item</button>
+	</a>
 </body>
 </html>
