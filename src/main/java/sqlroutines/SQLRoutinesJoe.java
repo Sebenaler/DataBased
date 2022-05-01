@@ -97,6 +97,7 @@ public class SQLRoutinesJoe
 	  
 	  public boolean createAccount(String uID, String lastN, String firstN, String email,String password1,String password2, String playerYear, String playerDesc,String socialMedia,String IGN ) {
 		  try{
+			  if(password1.equals(password2)) {
 			  	CallableStatement callStmt;
 			  	Connection con = openDBConnection();
 			  	callStmt = con.prepareCall("{call create_player(?,?,?,?,?,?,?,?,?,?)}");	
@@ -111,15 +112,20 @@ public class SQLRoutinesJoe
 			  	callStmt.setString(9,socialMedia);
 			  	callStmt.setString(10,IGN);
 			    callStmt.execute();
+			    
 			    System.out.println("New player created");
 			    return true;
+		  }
+			  else
+			  {
+				  return false;
+			  }
 			  }
 			  
 			    catch(SQLException e){
 			       System.out.println(e); 
 			       return false;
 			   }
-		 
 			  
 	  }
 	  public void editProfile(String p_id,String password, String desc, String IGN)
