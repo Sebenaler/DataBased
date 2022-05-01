@@ -11,6 +11,8 @@
 <title>List of All Teams</title>
 </head>
 <body>
+<h1>Team List:</h1>
+<h3>
 <% SQLRoutinesIan s = new SQLRoutinesIan();
 ResultSet result = s.viewTeams();
 %>
@@ -26,6 +28,6 @@ ResultSet result = s.viewTeams();
 	<button type="button">Remove Team</button>
 	</a><br>
 	<% }%>
-	
+	</h3>
 </body>
 </html>
