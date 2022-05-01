@@ -11,11 +11,15 @@
 <title>View Team Roster</title>
 </head>
 <body>
-	<h1>
-		<% SQLRoutinesIan s = new SQLRoutinesIan();
-String result1 = s.viewTeamRoster(request.getParameter("team_name"));
+<h1>Team Roster For: <%=request.getParameter("team_name") %></h1>
+	<h3>
+	<% SQLRoutinesIan s = new SQLRoutinesIan();
+ResultSet result = s.viewTeamRoster(request.getParameter("team_name"));
 %>
-		<%=result1%>
+		<% while (result.next()){    %>
+    	<%=result.getString(1) + " " + result.getString(2)%><br>
+      
+    <%}%>
 
 	</h1>
 </body>

@@ -50,7 +50,7 @@ public class SQLRoutinesIan implements Serializable {
 //    }
 //  }
 //    
-  public String viewTeamRoster(String tn) {
+  public ResultSet viewTeamRoster(String tn) {
     try{
     String queryString = "select u.first, u.last from player_table u, plays_on p where u.player_id = p.player_id and p.team_name = '" + tn + "'";
     Connection con = openDBConnection();
@@ -60,17 +60,19 @@ public class SQLRoutinesIan implements Serializable {
     stmt = con.createStatement();
     ResultSet result = stmt.executeQuery(queryString);
     
-    while (result.next()){    
-    	result1 += result.getString(1);
-      System.out.println(result.getString(1));
+//    while (result.next()){    
+//    	result1 += result.getString(1);
+//      System.out.println(result.getString(1));
+//    }
+    return result;
     }
-    }
-return result1;
+
     }
     catch(SQLException e){
        System.out.println(e); 
-       return null;
+       
     }
+    return null;
   }
   
   public boolean addNewStoreItem(String i_num, String i_name, double p, String i_desc, int q) {
