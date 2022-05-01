@@ -12,8 +12,16 @@
 </head>
 <body>
 	<% SQLRoutinesIan s = new SQLRoutinesIan();
-String r = s.viewPlayerProfile("05");
+ResultSet result = s.viewPlayerProfile(request.getParameter("player_id"));
 %>
-	<%=r %>
+<% while (result.next()){    %>
+	<%=result.getString(1)%><br>
+	<%=result.getString(2)%><br>
+	<%=result.getString(3)%><br>
+	<%=result.getString(4)%><br>
+	<%=result.getString(5)%><br>
+	<%=result.getString(6)%><br>
+	<%=result.getString(7)%><br>
+	<%} %>
 </body>
 </html>

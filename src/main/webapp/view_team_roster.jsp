@@ -18,10 +18,10 @@ ResultSet result = s.viewTeamRoster(request.getParameter("team_name"));
 %>
 		<% while (result.next()){    %>
     	<%=result.getString(1) + " " + result.getString(2)%>
-      	<a href="./remove_player_from_team.jsp?team_name=<%=result.getString(1) %>"> 
+      	<a href="./remove_player_from_team.jsp?player_id=<%=result.getString(3)%>"> 
 	<button type="button">Remove Player</button>
 	</a>
-		<a href="./view_player_profile.jsp?team_name=<%=result.getString(1) %>"> 
+		<a href="./view_player_profile.jsp?player_id=<%=result.getString(3) %>"> 
 	<button type="button">View Profile</button>
 	</a><br>
     <%}%>
