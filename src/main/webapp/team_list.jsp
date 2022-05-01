@@ -22,7 +22,7 @@ ResultSet result = s.viewTeams();
 		<a href="./view_team_schedule.jsp?team_name=<%=result.getString(1) %>"> 
 	<button type="button">View Schedule</button>
 	</a>
-		<a href="./view_team_schedule.jsp?team_name=<%=result.getString(1) %>"> 
+		<a href="./remove_team.jsp?team_name=<%=result.getString(1) %>"> 
 	<button type="button">Remove Team</button>
 	</a><br>
 	<% }%>
