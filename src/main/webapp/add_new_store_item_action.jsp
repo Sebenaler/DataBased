@@ -3,24 +3,22 @@
 <%@page import="java.io.*"%>
 <%@page import="java.sql.*"%>
 <%@page import="oracle.jdbc.*"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>View Team Roster</title>
+<title>Add New Store Item Action</title>
 </head>
 <body>
-<h1>Team Roster For: <%=request.getParameter("team_name") %></h1>
-	<h3>
-	<% SQLRoutinesIan s = new SQLRoutinesIan();
-ResultSet result = s.viewTeamRoster(request.getParameter("team_name"));
-%>
-		<% while (result.next()){    %>
-    	<%=result.getString(1) + " " + result.getString(2)%><br>
-      
-    <%}%>
 
-	</h3>
+	<% SQLRoutinesIan s = new SQLRoutinesIan();
+boolean r = s.addNewStoreItem(request.getParameter("item_number"),
+		request.getParameter("item_nuame"),
+		Double.parseDouble(request.getParameter("item_price")), 
+		request.getParameter("item_desc"), 
+		Integer.parseInt(request.getParameter("item_quantity")));
+%>
+	<%=r %>
+
 </body>
 </html>

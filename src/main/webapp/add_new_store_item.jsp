@@ -11,9 +11,19 @@
 <title>Add New Store Item</title>
 </head>
 <body>
-	<% SQLRoutinesIan s = new SQLRoutinesIan();
-boolean r = s.addNewStoreItem("0005","razer naga", 56.99, "razer naga mouse", 15);
-%>
-	<%=r %>
+
+<form action = "add_new_store_item.jsp" method = "GET">
+         Item Number: <input type = "text" name = "item_number">
+         <br />
+         Item Name: <input type = "text" name = "item_name">
+         <br />
+         Item Price: <input type = "text" name = "item_price">
+         <br />
+         Item Description: <input type = "text" name = "item_desc">
+         <br />
+         Quantity: <input type = "text" name = "item_quantity" />
+         <input type = "submit" value = "Submit" />
+      </form>
+
 </body>
 </html>
