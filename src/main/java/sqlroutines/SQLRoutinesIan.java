@@ -126,7 +126,7 @@ public class SQLRoutinesIan implements Serializable {
 		    }
 	  return null;
 	  }
-  public String viewStoreItems() {
+  public ResultSet viewStoreItems() {
 	  try{
 		    String queryString = "select * from store_item where quantity <> 0";
 		    Connection con = openDBConnection();
@@ -136,17 +136,19 @@ public class SQLRoutinesIan implements Serializable {
 		    stmt = con.createStatement();
 		    ResultSet result = stmt.executeQuery(queryString);
 		    
-		    while (result.next()){    
-		    	result1 = result.getString(1)+result.getString(2)+result.getString(3)+result.getString(4)+result.getString(5);
-		      System.out.println(result.getString(1));
+//		    while (result.next()){    
+//		    	result1 = result.getString(1)+result.getString(2)+result.getString(3)+result.getString(4)+result.getString(5);
+//		      System.out.println(result.getString(1));
+//		    }
+return result;
 		    }
-		    }
-		return result1;
+		
 		    }
 		    catch(SQLException e){
 		       System.out.println(e); 
-		       return null;
+		       
 		    }
+	  return null;
 	  }
   public ResultSet viewTeams() {
 	  try{
