@@ -20,7 +20,7 @@
 	boolean result = j.loginPlayer(un, pass);
 	if(result = true && (user != "" && password != ""))
 	{
-		response.sendRedirect("index.jsp");
+		//response.sendRedirect("index.jsp");
 		session.setAttribute("loggedInUser", user);
 	}
 	else
