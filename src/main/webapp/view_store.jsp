@@ -11,8 +11,10 @@
 </head>
 <body>
 	<% SQLRoutinesIan s = new SQLRoutinesIan();
-String r = s.viewStoreItems();
+ResultSet r = s.viewStoreItems();
 %>
-	<%=r %>
+<%while(r.next()){ %>
+	<%="Item Name: " + r.getString(2) + " Item Price: " + r.getString(3) + " Item Description: " + r.getString(4)%><br>
+	<%} %>
 </body>
 </html>
