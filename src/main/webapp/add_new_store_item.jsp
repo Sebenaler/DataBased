@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action = "add_new_store_item.jsp" method = "GET">
+<form action = "add_new_store_item_action.jsp" method = "POST">
          Item Number: <input type = "text" name = "item_number">
          <br />
          Item Name: <input type = "text" name = "item_name">

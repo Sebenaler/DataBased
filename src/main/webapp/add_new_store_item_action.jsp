@@ -13,10 +13,11 @@
 
 	<% SQLRoutinesIan s = new SQLRoutinesIan();
 boolean r = s.addNewStoreItem(request.getParameter("item_number"),
-		request.getParameter("item_nuame"),
+		request.getParameter("item_name"),
 		Double.parseDouble(request.getParameter("item_price")), 
 		request.getParameter("item_desc"), 
 		Integer.parseInt(request.getParameter("item_quantity")));
+response.sendRedirect("add_new_store_item.jsp");
 %>
 	<%=r %>
 
