@@ -15,9 +15,14 @@ public class SQLRoutinesTestJoe{
 
         SQLRoutinesJoe s = new SQLRoutinesJoe();
 		s.loginPlayer("mdave001@csbsju.edu","1234");
-		boolean r = s.createAccount("09", "Sebenaler", "Joe", "jsebenale001@csbsju.edu","pass12345", "pass12345", "3","Absolute gamer",
+		
+		SQLRoutinesJoe t = new SQLRoutinesJoe();
+		boolean r = t.createAccount("09", "Sebenaler", "Joe", "jsebenale001@csbsju.edu","pass12345", "pass12345", "3","Absolute gamer",
 				"twitter.com/JoeSebenaler", "SEBATRON");
 		System.out.println(r);
+		
+		SQLRoutinesJoe p = new SQLRoutinesJoe();
+		p.editProfile("05","pass1234312414", "BIG BALLER SEB", "snipstashower");
     }
   
   
