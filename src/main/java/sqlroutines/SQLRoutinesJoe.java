@@ -99,16 +99,17 @@ public class SQLRoutinesJoe
 		  try{
 			  	CallableStatement callStmt;
 			  	Connection con = openDBConnection();
-			  	callStmt = con.prepareCall("{call create_player(?,?,?,?,?,?,?,?,?)}");	
+			  	callStmt = con.prepareCall("{call create_player(?,?,?,?,?,?,?,?,?,?)}");	
 			  	callStmt.setString(1,uID);
 			  	callStmt.setString(2,lastN);
 			  	callStmt.setString(3,firstN);
 			  	callStmt.setString(4,email);
 			  	callStmt.setString(5,password1);
-			  	callStmt.setString(6,playerYear);
-			  	callStmt.setString(7,playerDesc);
-			  	callStmt.setString(8,socialMedia);
-			  	callStmt.setString(9,IGN);
+			  	callStmt.setString(6,password2);
+			  	callStmt.setString(7,playerYear);
+			  	callStmt.setString(8,playerDesc);
+			  	callStmt.setString(9,socialMedia);
+			  	callStmt.setString(10,IGN);
 			    callStmt.execute();
 			    System.out.println("New player created");
 			    return true;
@@ -121,10 +122,24 @@ public class SQLRoutinesJoe
 		 
 			  
 	  }
-	  public boolean editProfile(String password)
+	  public void editProfile(String p_id,String password, String desc, String IGN)
 	  {
-		  return true;
-	  }
+		  try{
+			    String queryString = "UPDATE player_table SET player_table.player_password = '"+password+"',player_table.player_description = '"+desc+"', player_table.IGN='"+IGN+"' where player_table.player_id = '" + p_id + "'";
+			    Connection con = openDBConnection();
+			    Statement stmt;
+
+			    if (con != null) {
+			    stmt = con.createStatement();
+			    stmt.executeQuery(queryString);
+			    }
+
+			    }
+			    catch(SQLException e){
+			       System.out.println(e); 
+
+			    }
+		  }
 	 }
 
 
