@@ -7,18 +7,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Login Page</title>
 </head>
 <body>
 <h1>
-	<%	
-	String un = request.getParameter("Username");
-	String pass = request.getParameter("Password");
-	String user = "mdavid003@csbsju.edu";
+ <form action="login_action.jsp" method="post">
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit">Login</button>
+  </div>
+
+</form> 
+	<%	/*
+	String un = request.getParameter("uname");
+	String pass = request.getParameter("psw");
+	String user = "LJONES001@csbsju.edu";
 	String password = "1234";
 	SQLRoutinesJoe j = new SQLRoutinesJoe();
 	boolean result = j.loginPlayer(un, pass);
-	if(result = true && (user != "" && password != ""))
+	*/%>
+	<%/* if(result = true && (user != "" && password != ""))
 	{
 		//response.sendRedirect("index.jsp");
 		session.setAttribute("loggedInUser", user);
@@ -26,8 +39,8 @@
 	else
 	{
 		response.sendRedirect("index.jsp?message= Error Message: Invalid Username or Password!");
-	}
-	%>
+	}*/%>
+	
 
 </h1>
 </body>
