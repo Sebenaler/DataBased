@@ -83,6 +83,7 @@ public class SQLRoutinesJoe
 	  }
 	  return loggedIn;
   }
+  
 	  /**
 	   * sets loggedIn instance field to false
 	   * @throws IllegalStateException if then method is called when loggedIn = false
@@ -93,8 +94,39 @@ public class SQLRoutinesJoe
 	    
 	    this.loggedIn = false;
 	  }
+	  
+	  public boolean createAccount(String uID, String lastN, String firstN, String email,String password1,String password2, String playerYear, String playerDesc,String socialMedia,String IGN ) {
+		  try{
+			  	CallableStatement callStmt;
+			  	Connection con = openDBConnection();
+			  	callStmt = con.prepareCall("{call create_player(?,?,?,?,?,?,?,?,?)}");	
+			  	callStmt.setString(1,uID);
+			  	callStmt.setString(2,lastN);
+			  	callStmt.setString(3,firstN);
+			  	callStmt.setString(4,email);
+			  	callStmt.setString(5,password1);
+			  	callStmt.setString(6,playerYear);
+			  	callStmt.setString(7,playerDesc);
+			  	callStmt.setString(8,socialMedia);
+			  	callStmt.setString(9,IGN);
+			    callStmt.execute();
+			    System.out.println("New player created");
+			    return true;
+			  }
+			  
+			    catch(SQLException e){
+			       System.out.println(e); 
+			       return false;
+			   }
+		 
+			  
+	  }
+	  public boolean editProfile(String password)
+	  {
+		  return true;
+	  }
+	 }
 
-}
 
   
   
