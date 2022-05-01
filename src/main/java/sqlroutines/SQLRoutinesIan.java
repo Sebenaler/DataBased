@@ -52,7 +52,7 @@ public class SQLRoutinesIan implements Serializable {
 //    
   public ResultSet viewTeamRoster(String tn) {
     try{
-    String queryString = "select u.first, u.last from player_table u, plays_on p where u.player_id = p.player_id and p.team_name = '" + tn + "'";
+    String queryString = "select u.first, u.last, u.player_id from player_table u, plays_on p where u.player_id = p.player_id and p.team_name = '" + tn + "'";
     Connection con = openDBConnection();
     Statement stmt;
     String result1 = "";
@@ -102,7 +102,7 @@ public class SQLRoutinesIan implements Serializable {
 		       return false;
 		   }
   }
-  public String viewPlayerProfile(String p_id) {
+  public ResultSet viewPlayerProfile(String p_id) {
 	  try{
 		    String queryString = "select u.first, u.last, u.email, u.player_year, u.player_description,u.social_media, u.ign from player_table u where u.player_id = '" + p_id + "'";
 		    Connection con = openDBConnection();
@@ -112,17 +112,19 @@ public class SQLRoutinesIan implements Serializable {
 		    stmt = con.createStatement();
 		    ResultSet result = stmt.executeQuery(queryString);
 		    
-		    while (result.next()){    
-		    	result1 = result.getString(1)+result.getString(2)+result.getString(3)+result.getString(4)+result.getString(5)+result.getString(6)+result.getString(7);
-		      System.out.println(result.getString(1));
+//		    while (result.next()){    
+//		    	result1 = result.getString(1)+result.getString(2)+result.getString(3)+result.getString(4)+result.getString(5)+result.getString(6)+result.getString(7);
+//		      System.out.println(result.getString(1));
+//		    }
+		    return result;
 		    }
-		    }
-		return result1;
+		
 		    }
 		    catch(SQLException e){
 		       System.out.println(e); 
-		       return null;
+		       
 		    }
+	  return null;
 	  }
   public String viewStoreItems() {
 	  try{
