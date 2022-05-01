@@ -26,6 +26,6 @@ ResultSet result = s.viewTeamRoster(request.getParameter("team_name"));
 	</a><br>
     <%}%>
 
-	</h1>
+	</h3>
 </body>
 </html>
