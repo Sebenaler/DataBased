@@ -13,7 +13,7 @@
 <h1>
  <form action="login_action.jsp" method="post">
   <div class="container">
-    <label for="uname"><b>Username</b></label>
+    <label for="uname"><b>Email</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
 
     <label for="psw"><b>Password</b></label>

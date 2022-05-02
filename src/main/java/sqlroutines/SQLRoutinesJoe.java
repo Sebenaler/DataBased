@@ -66,6 +66,7 @@ public class SQLRoutinesJoe
 	    	result = preparedStmt.executeQuery();
 	    	if(result.next())
 	    	{
+	    		System.out.println(result.getInt(1));
 	    		if(result.getInt(1)==-1) 
 	    		{
 	    			loggedIn = true;
@@ -83,7 +84,37 @@ public class SQLRoutinesJoe
 	  }
 	  return loggedIn;
   }
-  
+  public boolean loginAdmin(String email, String pass){
+	  try {
+		  	loggedIn = false;
+		  	PreparedStatement preparedStmt;
+		  	Connection con = openDBConnection();
+	    	String queryString = "select loggedInAdmin(?,?) as Num from dual";
+	    	preparedStmt = con.prepareStatement(queryString);
+	    	preparedStmt.clearParameters();
+	    	preparedStmt.setString(1,email);
+	    	preparedStmt.setString(2,pass);
+	    	result = preparedStmt.executeQuery();
+	    	if(result.next())
+	    	{
+	    		System.out.println(result.getInt(1) + "HERE HERE");
+	    		if(result.getInt(1)==1) 
+	    		{
+	    			loggedIn = true;
+	    		}
+	    	}
+	    	
+	    	System.out.println(loggedIn);
+	    	result.close();
+	    	preparedStmt.close();
+	    	
+	  }
+	  catch(SQLException e)
+	  {
+		  System.out.println(e);
+	  }
+	  return loggedIn;
+  } 
 	  /**
 	   * sets loggedIn instance field to false
 	   * @throws IllegalStateException if then method is called when loggedIn = false
@@ -146,6 +177,29 @@ public class SQLRoutinesJoe
 
 			    }
 		  }
+	  public String viewProfile(String p_id)
+	  {
+	  try{
+		    String queryString = "select u.first, u.last, u.email,u.player_password, u.player_year, u.player_description,u.social_media, u.ign from player_table u where u.player_id = '" + p_id + "'";
+		    Connection con = openDBConnection();
+		    Statement stmt;
+		    String result1 = "";
+		    if (con != null) {
+		    stmt = con.createStatement();
+		    ResultSet result = stmt.executeQuery(queryString);
+		    
+		    while (result.next()){    
+		    	result1 = result.getString(1)+result.getString(2)+result.getString(3)+result.getString(4)+result.getString(5)+result.getString(6)+result.getString(7)+result.getString(8);
+		      System.out.println(result.getString(1));
+		    }
+		    }
+		return result1;
+		    }
+		    catch(SQLException e){
+		       System.out.println(e); 
+		       return null;
+		    }
+	  }
 	 }
 
 
