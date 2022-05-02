@@ -124,7 +124,7 @@ public void addTeam(String teamName, String game, String league) {
   callStmt.setString(1, teamName);
   callStmt.setString(2, game);
   callStmt.setString(3, league);
-  callStmt.setString(4, "0");
+  callStmt.setInt(4, 0);
   callStmt.execute();
   
   System.out.println("Team "+teamName+" has been added.");

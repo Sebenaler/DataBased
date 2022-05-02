@@ -3,23 +3,23 @@
 <%@page import="java.io.*"%>
 <%@page import="java.sql.*"%>
 <%@page import="oracle.jdbc.*"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Remove Team</title>
+<title>Add Team</title>
 </head>
 <body>
+
 	<% SQLRoutinesBen s = new SQLRoutinesBen();
-       s.removeTeam(request.getParameter("team_name"));
-       //request.setAttribute("team_name", request.getParameter("team_name"));
-       //response.sendRedirect("view_team_roster.jsp");
-    %>
-    
-    <a href="./team_list.jsp"> 
-	<button type="button">Confirm Remove</button>
+s.addTeam(request.getParameter("team_name"), request.getParameter("game"), request.getParameter("league"));
+//request.setAttribute("team_name", request.getParameter("team_name"));
+//response.sendRedirect("view_team_roster.jsp");
+%>
+
+<a href="./team_list.jsp"> 
+	<button type="button">Confirm Add</button>
 	</a><br>
-    
+
 </body>
 </html>
