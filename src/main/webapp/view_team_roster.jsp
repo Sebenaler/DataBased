@@ -18,18 +18,20 @@
 %>
 		<% while (result.next()){    %>
     	<%=result.getString(1) + " " + result.getString(2)%>
+    	<%if(session.getAttribute("loggedInAdmin") != null){%>
       	<a href="./remove_player_from_team.jsp?player_id=<%=result.getString(3)%>&team_name=<%=request.getParameter("team_name")%>"> 
 	<button type="button">Remove Player</button>
-	</a>
+	</a><% }%>
 		<a href="./view_player_profile.jsp?player_id=<%=result.getString(3) %>"> 
 	<button type="button">View Profile</button>
 	</a><br>
     <%}%>
 
 	</h3>
+	<%if(session.getAttribute("loggedInAdmin") != null){%>
 	<a href="./add_player_to_team.jsp?team_name=<%=request.getParameter("team_name")%>"> 
 	<button type="button">Add Player</button>
-	</a>
+	</a><% }%>
 	<a href="./team_list.jsp"> 
 	<button type="button">Back to All Teams</button>
 	</a><br>

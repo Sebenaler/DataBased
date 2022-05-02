@@ -26,13 +26,18 @@ ResultSet result = s.viewTeams();
 		<a href="./view_team_schedule.jsp?team_name=<%=result.getString(1) %>"> 
 	<button type="button">View Schedule</button>
 	</a>
+	<%if(session.getAttribute("loggedInAdmin") != null){%>
 		<a href="./remove_team.jsp?team_name=<%=result.getString(1) %>"> 
 	<button type="button">Remove Team</button>
-	</a><br>
+	</a><% }%><br>
 	<% }%>
 	</h3>
+	<%if(session.getAttribute("loggedInAdmin") != null){%>
 	<a href="./add_team.jsp"> 
 	<button type="button">Add Team</button>
-	</a><br>
+	</a><% }%>
+	<a href="./index.jsp"> 
+	<button type="button">Back to Home</button>
+	</a>
 </body>
 </html>
