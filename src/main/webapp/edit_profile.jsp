@@ -10,7 +10,8 @@
 <title>Insert title here</title>
 </head>
 <body>
- <form action="edit_profile_action.jsp" method="post">
+ <form action="edit_profile_action.jsp" method="post" >
+<h1>Edit Profile</h1>
   <div class="container">
 
         <label for="pass"><b>Password</b></label>
@@ -21,11 +22,8 @@
     
         <label for="ign"><b>In Game Name</b></label>
     <input type="text" placeholder="Enter New IGN" name="ign" required>
-    
-    
-    
+
     <button type="submit">Submit</button>
   </div>
-
 </body>
 </html>

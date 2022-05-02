@@ -159,10 +159,10 @@ public class SQLRoutinesJoe
 			   }
 			  
 	  }
-	  public void editProfile(String p_id,String password, String desc, String IGN)
+	  public void editProfile(String email,String password, String desc, String IGN)
 	  {
 		  try{
-			    String queryString = "UPDATE player_table SET player_table.player_password = '"+password+"',player_table.player_description = '"+desc+"', player_table.IGN='"+IGN+"' where player_table.player_id = '" + p_id + "'";
+			    String queryString = "UPDATE player_table SET player_table.player_password = '"+password+"',player_table.player_description = '"+desc+"', player_table.IGN='"+IGN+"' where player_table.email = '" + email+ "'";
 			    Connection con = openDBConnection();
 			    Statement stmt;
 

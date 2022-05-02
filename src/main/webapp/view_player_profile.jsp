@@ -26,10 +26,12 @@ ResultSet result = s.viewPlayerProfile(request.getParameter("player_id"));
 	<h3>IGN:</h3><%=result.getString(7)%><br>
 	
 	<%} %>
+
 <a href="./edit_profile.jsp"></a>
 <button type="button">Edit Profile</button>
 <h3>Delete Player</h3>
 <a href="./delete_player_profile.jsp?playerID=<%=request.getParameter("player_id")%>"></a>
-<button type = "button">Edit Profile</button>
+<button type = "button">Delete Profile</button>
+
 </body>
 </html>

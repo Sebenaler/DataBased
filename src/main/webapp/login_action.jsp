@@ -15,20 +15,22 @@
 	String pass = request.getParameter("psw");
 	SQLRoutinesJoe j = new SQLRoutinesJoe();
 	boolean result = j.loginPlayer(un, pass);
-	System.out.println(result);
+	System.out.println(result + "LOGIN USER");
 	boolean result2 = j.loginAdmin(un,pass);
-	System.out.println(result2+ "DHSFJDHSJFHDSF");
+	System.out.println(session.getAttribute("email"));
+	System.out.println(result2+ "ADMIN CHECK");
 	%>
 	<% if(result == true)
 	{
 		session.setAttribute("loggedInUser", un);
-		response.sendRedirect("team_list.jsp");
+		System.out.println((String)session.getAttribute("loggedInUser"));
+		response.sendRedirect("index.jsp");
 
 	}
 	else if(result2 == true)
 	{
 		session.setAttribute("loggedInAdmin", un);
-		response.sendRedirect("team_list.jsp");
+		response.sendRedirect("index.jsp");
 
 	}
 	else

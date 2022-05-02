@@ -11,14 +11,18 @@
 </head>
 <body>
 		<%
-		//I JUST NEED TO GET THE ID TO PASS HERE
-		String id = "05";
+		//I JUST NEED TO GET THE ID TO PASS HERE AS WELL AS CHECK IF LOGGED IN PERSON ID = ID HERE
+
+
+		String email = (String)session.getAttribute("loggedInUser");
+		System.out.println(email);
 		String pass1 = request.getParameter("pass");
 		String desc = request.getParameter("desc");
 		String IGN = request.getParameter("ign");
 			SQLRoutinesJoe j = new SQLRoutinesJoe();
-			j.editProfile(id,pass1,desc,IGN );
-			response.sendRedirect("team_list.jsp");
+			j.editProfile(email,pass1,desc,IGN );
+			response.sendRedirect("index.jsp");
+		
 		%>
 </body>
 </html>
