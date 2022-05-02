@@ -16,6 +16,9 @@ public class SQLRoutinesTestJoe{
         SQLRoutinesJoe s = new SQLRoutinesJoe();
 		s.loginPlayer("mdave001@csbsju.edu","1234");
 		
+		SQLRoutinesJoe a = new SQLRoutinesJoe();
+		System.out.println(a.loginAdmin("HJONES001@csbsju.edu","1234")+"TEST ");
+		
 		SQLRoutinesJoe t = new SQLRoutinesJoe();
 		boolean r = t.createAccount("09", "Sebenaler", "Joe", "jsebenale001@csbsju.edu","pass12345", "pass12345", "3","Absolute gamer",
 				"twitter.com/JoeSebenaler", "SEBATRON");
