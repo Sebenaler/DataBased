@@ -31,5 +31,8 @@ ResultSet result = s.viewTeams();
 	</a><br>
 	<% }%>
 	</h3>
+	<a href="./add_team.jsp"> 
+	<button type="button">Add Team</button>
+	</a><br>
 </body>
 </html>

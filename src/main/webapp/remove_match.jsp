@@ -1,13 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" import="sqlroutines.*"%>
+<%@page import="java.io.*"%>
+<%@page import="java.sql.*"%>
+<%@page import="oracle.jdbc.*"%>
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Remove Match</title>
 </head>
 <body>
-<f:view>
-
-</f:view>
+	<% SQLRoutinesBen s = new SQLRoutinesBen();
+       s.removeMatch(request.getParameter("match_id"));
+       //request.setAttribute("team_name", request.getParameter("team_name"));
+       //response.sendRedirect("view_team_roster.jsp");
+    %>
+    
+    <a href="./view_team_schedule.jsp?team_name=<%=request.getParameter("team_name")%>"> 
+	<button type="button">Confirm Remove</button>
+	</a><br>
+    
 </body>
 </html>
