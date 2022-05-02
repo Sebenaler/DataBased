@@ -13,6 +13,7 @@
 <body>
 	<% SQLRoutinesIan s = new SQLRoutinesIan();
 ResultSet result = s.viewPlayerProfile(request.getParameter("player_id"));
+
 %>
 
 <% while (result.next()){    %>
@@ -24,6 +25,7 @@ ResultSet result = s.viewPlayerProfile(request.getParameter("player_id"));
 	<h3>Socials:</h3><%=result.getString(6)%><br>
 	<h3>IGN:</h3><%=result.getString(7)%><br>
 	<%} %>
-
+<a href="./edit_profile.jsp"> 
+<button type="button">Edit Profile</button>
 </body>
 </html>

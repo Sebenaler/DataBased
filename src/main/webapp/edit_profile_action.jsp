@@ -10,8 +10,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<f:view>
-
-</f:view>
+		<%
+		//I JUST NEED TO GET THE ID TO PASS HERE
+		String id = "05";
+		String pass1 = request.getParameter("pass");
+		String desc = request.getParameter("desc");
+		String IGN = request.getParameter("ign");
+			SQLRoutinesJoe j = new SQLRoutinesJoe();
+			j.editProfile(id,pass1,desc,IGN );
+			response.sendRedirect("team_list.jsp");
+		%>
 </body>
 </html>
