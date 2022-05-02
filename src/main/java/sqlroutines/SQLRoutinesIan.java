@@ -13,9 +13,7 @@ public class SQLRoutinesIan implements Serializable {
   
   public Connection openDBConnection() {
     try {
-      // Load driver and link to driver manager
       Class.forName("oracle.jdbc.OracleDriver");
-      // Create a connection to the specified database
       Connection myConnection = DriverManager.getConnection("jdbc:oracle:thin:@//cscioraclerh7srv.ad.csbsju.edu:1521/" +
                                                             "csci.cscioraclerh7srv.ad.csbsju.edu","TEAM01", "team01");
       return myConnection;
@@ -24,32 +22,7 @@ public class SQLRoutinesIan implements Serializable {
     }
     return null;
   }
-  
-//    public void viewTeamAndNumPlayers() {
-//      
-//    try{
-//    //A string to hold the SQL statement....
-//
-//    String queryString = "select u.first, u.last from player_table u, plays_on p where u.player_id = p.player_id and p.team_name = '" + tn + "'";
-//    //Create a prepared statement using the connection object...must specify an SQL string as an arguement
-//    PreparedStatement preparedStmt;
-//    Connection con = openDBConnection();
-//    preparedStmt = con.prepareStatement(queryString);
-//    ResultSet result;
-//    result = preparedStmt.executeQuery();
-//    System.out.println(queryString);
-//    if (result.next()){    
-//      System.out.println(result.getString(1));
-//    }
-//    
-//    result.close();
-//    preparedStmt.close();
-//                   }
-//    catch(SQLException e){
-//       System.out.println(e); 
-//    }
-//  }
-//    
+   
   public ResultSet viewTeamRoster(String tn) {
     try{
     String queryString = "select u.first, u.last, u.player_id from player_table u, plays_on p where u.player_id = p.player_id and p.team_name = '" + tn + "'";
@@ -60,10 +33,6 @@ public class SQLRoutinesIan implements Serializable {
     stmt = con.createStatement();
     ResultSet result = stmt.executeQuery(queryString);
     
-//    while (result.next()){    
-//    	result1 += result.getString(1);
-//      System.out.println(result.getString(1));
-//    }
     return result;
     }
 
@@ -87,14 +56,6 @@ public class SQLRoutinesIan implements Serializable {
 		    callStmt.setInt(5,q);
 		    callStmt.execute();
 		  
-		  /*
-		    String queryString = "execute DataBased.insert_new_item('"+ i_num +"','"+i_name+"',"+p+", '"+i_desc+"', "+q+")";
-		    Connection con = openDBConnection();
-		    Statement stmt;
-		    if (con != null) {
-		    stmt = con.createStatement();
-		    stmt.executeQuery(queryString);
-		    }*/
 		    return true;
 		    }
 		    catch(SQLException e){
@@ -112,10 +73,6 @@ public class SQLRoutinesIan implements Serializable {
 		    stmt = con.createStatement();
 		    ResultSet result = stmt.executeQuery(queryString);
 		    
-//		    while (result.next()){    
-//		    	result1 = result.getString(1)+result.getString(2)+result.getString(3)+result.getString(4)+result.getString(5)+result.getString(6)+result.getString(7);
-//		      System.out.println(result.getString(1));
-//		    }
 		    return result;
 		    }
 		
@@ -136,10 +93,6 @@ public class SQLRoutinesIan implements Serializable {
 		    stmt = con.createStatement();
 		    ResultSet result = stmt.executeQuery(queryString);
 		    
-//		    while (result.next()){    
-//		    	result1 = result.getString(1)+result.getString(2)+result.getString(3)+result.getString(4)+result.getString(5);
-//		      System.out.println(result.getString(1));
-//		    }
 return result;
 		    }
 		
@@ -159,11 +112,6 @@ return result;
 		    if (con != null) {
 		    stmt = con.createStatement();
 		    ResultSet result = stmt.executeQuery(queryString);
-		    
-//		    while (result.next()){    
-//		    	result1 = result.getString(1)+result.getString(2)+result.getString(3)+result.getString(4)+result.getString(5);
-//		      System.out.println(result.getString(1));
-//		    }
 		    return result;
 		    }
 		

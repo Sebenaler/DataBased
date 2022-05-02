@@ -12,8 +12,7 @@
 <body>
 		<%
 		//I JUST NEED TO GET THE ID TO PASS HERE AS WELL AS CHECK IF LOGGED IN PERSON ID = ID HERE
-
-		String email = (String)request.getAttribute("loggedInUser");
+		String email = (String)session.getAttribute("loggedInUser");
 		System.out.println(email);
 		String pass1 = request.getParameter("pass");
 		String desc = request.getParameter("desc");

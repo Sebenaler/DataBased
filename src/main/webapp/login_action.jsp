@@ -17,9 +17,8 @@
 	boolean result = j.loginPlayer(un, pass);
 	System.out.println(result + "LOGIN USER");
 	boolean result2 = j.loginAdmin(un,pass);
-	request.getSession().setAttribute("email",un);
 	System.out.println(session.getAttribute("email"));
-	System.out.println(result2+ "DHSFJDHSJFHDSF");
+	System.out.println(result2+ "ADMIN CHECK");
 	%>
 	<% if(result == true)
 	{
