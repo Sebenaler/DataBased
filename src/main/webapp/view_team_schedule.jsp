@@ -21,10 +21,10 @@ ResultSet result = s.viewTeamSchedule(request.getParameter("team_name"));
       	<%if(session.getAttribute("loggedInAdmin") != null){%>
       	<a href="./remove_match.jsp?match_id=<%=result.getString(1)%>&team_name=<%=request.getParameter("team_name")%>"> 
 	<button type="button">Remove Match</button>
-	</a><% }%>
+	</a>
 		<a href="./update_match.jsp?team_name=<%=result.getString(1) %>"> 
 	<button type="button">Update Match</button>
-	</a><br>
+	</a><% }%><br>
     <%}%>
 
 	</h1>
