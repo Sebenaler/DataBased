@@ -10,6 +10,7 @@
 	<%
 	
 	session.setAttribute("loggedInUser", null);
+	session.setAttribute("loggedInAdmin",null);
 	response.sendRedirect("login.jsp");
 	  %>
 
