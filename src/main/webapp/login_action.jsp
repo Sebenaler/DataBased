@@ -23,6 +23,7 @@
 	<% if(result == true)
 	{
 		session.setAttribute("loggedInUser", un);
+		System.out.println((String)session.getAttribute("loggedInUser"));
 		response.sendRedirect("index.jsp");
 
 	}
