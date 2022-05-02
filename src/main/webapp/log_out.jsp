@@ -9,7 +9,7 @@
 <body>
 	<%
 	
-	session.setAttribute("loggedOut", null);
+	session.setAttribute("loggedInUser", null);
 	response.sendRedirect("login.jsp");
 	  %>
 

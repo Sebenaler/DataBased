@@ -18,6 +18,14 @@
 	<button type="button">Edit Profile</button>
 	</a>
 	
+	<div style="float:right">
+	<form align="right" name="form1" method="post" action="log_out.jsp">
+	  <label class="logoutLblPos">
+	  <input name="submit2" type="submit" id="submit2" value="log out">
+	  </label>
+	</form>
+	</div>
+
 	
 </body>
 </html>
