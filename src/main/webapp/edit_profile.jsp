@@ -22,6 +22,8 @@
         <label for="ign"><b>In Game Name</b></label>
     <input type="text" placeholder="Enter New IGN" name="ign" required>
     
+    
+    
     <button type="submit">Submit</button>
   </div>
 
