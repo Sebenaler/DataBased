@@ -19,9 +19,8 @@
 ResultSet r = s.viewStoreItems();
 %>
 <%while(r.next()){ %>
-	<%="Item Name: " + r.getString(2) + " Item Price: " + r.getString(3) + " Item Description: " + r.getString(4)  %><br>
-	<% InputStream is = r.getBinaryStream(6);%>
-	<img src="./image?id=<%= r.getString(1) %>" alt="test" width="951" height ="197"/>
+	<%="Item Name: " + r.getString(2) + " Item Price: " + r.getString(3) + " Item Description: " + r.getString(4)  %>
+	<img src="./image?id=<%= r.getString(1) %>" alt="<%= r.getString(2) %>" width="200" height ="200"/><br>
 	<%//BufferedImage img = ImageIO.read(new InputStreamReader());
 	} %>
 	<a href="./add_new_store_item.jsp">
