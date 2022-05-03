@@ -122,5 +122,43 @@ return result;
 		    }
 	  return null;
 	  }
+  public ResultSet getImage(String i_id) {
+	  try{
+		    String queryString = "select image, image_name from store_item where'" + i_id + "'= item_number";
+		    Connection con = openDBConnection();
+		    Statement stmt;
+		    //String result1 = "";
+		    if (con != null) {
+		    stmt = con.createStatement();
+		    ResultSet result = stmt.executeQuery(queryString);
+		    return result;
+		    }
+		
+		    }
+		    catch(SQLException e){
+		       System.out.println(e); 
+		       
+		    }
+	  return null;
+	  }
+  public ResultSet getImages() {
+	  try{
+		    String queryString = "select image, image_name from store_item";
+		    Connection con = openDBConnection();
+		    Statement stmt;
+		    //String result1 = "";
+		    if (con != null) {
+		    stmt = con.createStatement();
+		    ResultSet result = stmt.executeQuery(queryString);
+		    return result;
+		    }
+		
+		    }
+		    catch(SQLException e){
+		       System.out.println(e); 
+		       
+		    }
+	  return null;
+	  }
 
 }

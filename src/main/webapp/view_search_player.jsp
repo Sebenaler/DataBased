@@ -34,8 +34,8 @@
     <%}%>
 
 
-	<a href="./team_list.jsp"> 
-	<button type="button">Back to All Teams</button>
+	<a href="./index.jsp"> 
+	<button type="button">Back to home</button>
 	</a><br>
 </body>
 </html>
