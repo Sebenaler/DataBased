@@ -18,6 +18,10 @@
 	<button type="button">Edit Profile</button>
 	</a>
 	
+			<a href="./team_list.jsp"> 
+	<button type="button">View Teams</button>
+	</a>
+	
 	<div style="float:right">
 	<form align="right" name="form1" method="post" action="log_out.jsp">
 	  <label class="logoutLblPos">
