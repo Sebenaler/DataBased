@@ -10,9 +10,11 @@
 <title>Update Match Result</title>
 </head>
 <body><% 
+    	if(session.getAttribute("loggedInAdmin") != null){
 			SQLRoutinesPeyton p = new SQLRoutinesPeyton();
 			p.adminDeleteAccount(request.getParameter("playerID"));
 			response.sendRedirect("team_list.jsp");
+    	}
 		%>
 </body>
 </html>

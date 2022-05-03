@@ -14,16 +14,12 @@
 		//I JUST NEED TO GET THE ID TO PASS HERE
 		String id = request.getParameter("match_id");
 		String score = request.getParameter("score");
-		String date = request.getParameter("date");
-		String link = request.getParameter("link");
-		String game = request.getParameter("game");
-		String enemy = request.getParameter("enemy");
-		String name = request.getParameter("name");
+		
 				
 		
 			SQLRoutinesPeyton p = new SQLRoutinesPeyton();
-			p.AdminUpdateMatchResult(id, score, date, link, game, enemy, name);
-			response.sendRedirect("view_team_schedule.jsp");
+			p.AdminUpdateMatchResult(id, score);
+			response.sendRedirect("team_list.jsp");
 		%>
 </body>
 </html>

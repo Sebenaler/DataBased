@@ -89,16 +89,16 @@ public class SQLRoutinesPeyton implements Serializable {
 	  }
   }
   
-  public Boolean AdminUpdateMatchResult(String matchID, String score, String matchDate, String mediaLink, String game, String opponent, String teamName) {
+  public Boolean AdminUpdateMatchResult(String matchID, String score) {
 	  try {
-		  String tempMatchId = "";
+		  /*String tempMatchId = "";
 		  String tempScore = "";
 		  String tempMatchDate = "";
 		  String tempMedialink = "";
 		  String tempgame = "";
 		  String tempOpponent = "";
 		  String tempTeamname = "";
-		  Connection con = openDBConnection();
+		  
 		  String QueryString = "Select m.MATCH_ID, m.SCORE, m.MATCH_DATE, m.MEDIA_LINK, m.GAME, m.OPPONENT, m.TEAM_NAME From MATCHES m where MATCH_ID = '" + matchID+ "'";
 		  Statement stmt = con.createStatement();
 		  ResultSet result = stmt.executeQuery(QueryString);
@@ -132,8 +132,9 @@ public class SQLRoutinesPeyton implements Serializable {
 		  if (teamName == "") {
 			  teamName = tempTeamname;
 		  }
-		  
-		  CallableStatement callStmt1 = con.prepareCall(" {call REMOVEMATCH_PROC(?) }");
+		  */
+		  Connection con = openDBConnection();
+		  /*CallableStatement callStmt1 = con.prepareCall(" {call REMOVEMATCH_PROC(?) }");
 		  callStmt1.setString(1, matchID);
 		  callStmt1.execute();
 		  callStmt1.close();
@@ -149,9 +150,14 @@ public class SQLRoutinesPeyton implements Serializable {
 		  callStmt2.setString(7,  teamName);
 		  callStmt2.execute();
 		  callStmt2.close();
+		  */
+		  CallableStatement callStmt1 = con.prepareCall(" {call updateMatchScore_Proc(?,?) }");
+		  callStmt1.setString(1, matchID);
+		  callStmt1.setString(2, score);
+		  callStmt1.execute();
+		  callStmt1.close();
 		  return true;
-		  }
-		  return false;
+		  
 	  }
 	  catch (Exception E) {
 		  E.printStackTrace();
@@ -177,16 +183,15 @@ public class SQLRoutinesPeyton implements Serializable {
 	   
   
   
-  public String AdminSearchProfiles(String Player_ID, String last, String first, String email, String year, String socials, String ign) {
+  public ResultSet AdminSearchProfiles(String Player_ID, String last, String first, String year, String ign) {
 	  try {
-		  String result1 = "";
 		  Connection con = openDBConnection();
 		  String QueryString = "";
-		  if (Player_ID == "" && last == "" && first == "" && email == "" && year == "" && socials == "" && ign == ""  ) {
-			  QueryString = "Select p.PLAYER_ID, p.LAST, p.FIRST, p.EMAIL, p.PLAYER_YEAR, p.PLAYER_DESCRIPTION, p.SOCIAL_MEDIA, p.IGN from PLAYER_TABLE p";
+		  if (Player_ID == "" && last == "" && first == "" && year == ""  && ign == ""  ) {
+			  QueryString = "Select p.PLAYER_ID, p.LAST, p.FIRST from PLAYER_TABLE p";
 		  }
 		  else {
-			  QueryString = "Select p.PLAYER_ID, p.LAST, p.FIRST, p.EMAIL, p.PLAYER_YEAR, p.PLAYER_DESCRIPTION, p.SOCIAL_MEDIA, p.IGN from PLAYER_TABLE p Where 1 = 1";
+			  QueryString = "Select p.PLAYER_ID, p.LAST, p.FIRST from PLAYER_TABLE p Where '1' = '1'";
 		  }
 		  if (Player_ID != "") {
 			  QueryString = QueryString + " AND PLAYER_ID = '" + Player_ID+ "'";
@@ -198,17 +203,15 @@ public class SQLRoutinesPeyton implements Serializable {
 			  QueryString = QueryString + " AND FIRST = '" + first+ "'";
 		  }
 		  if (year != "") {
-			  QueryString = QueryString + " AND YEAR = '" + year+ "'";
-		  }
-		  if (socials != "") {
-			  QueryString = QueryString + " AND SOCIAL_MEDIA = '" + socials+ "'";
+			  QueryString = QueryString + " AND PLAYER_YEAR = '" + year+ "'";
 		  }
 		  if (ign != "") {
 			  QueryString = QueryString + " AND IGN = '" + ign+ "'";
 		  }
+		  //System.out.println(QueryString);
 		  Statement stmt = con.createStatement();
 		  ResultSet result = stmt.executeQuery(QueryString);
-		  while (result.next()){    
+		  /*while (result.next()){    
 		    	result1 = result1.concat(result.getString(1));
 		    	result1 = result1.concat(result.getString(2));
 		    	result1 = result1.concat(result.getString(3));
@@ -216,13 +219,13 @@ public class SQLRoutinesPeyton implements Serializable {
 		    	result1 = result1.concat(result.getString(5));
 		    	result1 = result1.concat(result.getString(6));
 		      System.out.println(result.getString(1));
-		    }
-		  stmt.close();
-		  return result1;
+		    }*/
+		  
+		  return result;
 	  }
 	  catch (Exception E) {
 		  E.printStackTrace();
-		  return "";
+		  return null;
 	  }
 				  
 	  }
