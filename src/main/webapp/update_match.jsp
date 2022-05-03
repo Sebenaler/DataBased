@@ -16,21 +16,7 @@
         <label for="score"><b>Score</b></label>
     <input type="text" placeholder="Enter Score:" name="score">
     
-        <label for="date"><b>matchDate</b></label>
-    <input type="text" placeholder="Enter Match Date(yyyy-mm-dd):" name="date" >
-    
-    	<label for="link"><b>MediaLink</b></label>
-    <input type="password" placeholder="Enter Media Link:" name="link" >
-    
-        <label for="game"><b>Game</b></label>
-    <input type="text" placeholder="Enter Game:" name="game" >
-    
-        <label for="enemy"><b>Oppenent</b></label>
-    <input type="text" placeholder="Enter Oppenent:" name="enemy" >
-    
-    	<label for="name"><b>teamName</b></label>
-    <input type="text" placeholder="Enter Team Name:" name="name">
-    
+
     <button type="submit">Submit</button>
   </div>
 

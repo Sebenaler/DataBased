@@ -22,6 +22,10 @@
 	<button type="button">View Teams</button>
 	</a>
 	
+	<a href="./search_player.jsp"> 
+	<button type="button">Search for Player</button>
+	</a>
+	
 	<div style="float:right">
 	<form align="right" name="form1" method="post" action="log_out.jsp">
 	  <label class="logoutLblPos">
