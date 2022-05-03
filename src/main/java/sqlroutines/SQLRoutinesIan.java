@@ -2,6 +2,9 @@ package sqlroutines;
 
 import java.io.*;
 import java.sql.*;
+
+import javax.servlet.http.Part;
+
 import oracle.jdbc.*;
 
 public class SQLRoutinesIan implements Serializable {
@@ -44,11 +47,11 @@ public class SQLRoutinesIan implements Serializable {
     return null;
   }
   
-  public boolean addNewStoreItem(String i_num, String i_name, double p, String i_desc, int q) {
+  public boolean addNewStoreItem(String i_num, String i_name, double p, String i_desc, int q) throws IOException {
 	  try{
 		  	CallableStatement callStmt;
 		  	Connection con = openDBConnection();
-		  	callStmt = con.prepareCall(" {call insert_new_item(?,?,?,?,?)}");
+		  	callStmt = con.prepareCall(" {call insert_new_item(?,?,?,?,?, ?, ?)}");
 		    callStmt.setString(1,i_num);
 		    callStmt.setString(2,i_name);
 		    callStmt.setDouble(3,p);

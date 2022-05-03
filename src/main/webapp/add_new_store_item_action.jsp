@@ -1,3 +1,6 @@
+<!-- NO LONGER IN USE  -->
+<!-- This page is replaced by the UploadServlet file -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="sqlroutines.*"%>
 <%@page import="java.io.*"%>
