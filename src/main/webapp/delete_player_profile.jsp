@@ -12,7 +12,7 @@
 <body><% 
     	if(session.getAttribute("loggedInAdmin") != null){
 			SQLRoutinesPeyton p = new SQLRoutinesPeyton();
-			p.adminDeleteAccount(request.getParameter("playerID"));
+			p.adminDeleteAccount(request.getParameter("player_id"));
 			response.sendRedirect("team_list.jsp");
     	}
 		%>
