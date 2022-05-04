@@ -26,5 +26,8 @@ ResultSet r = s.viewStoreItems();
 	<a href="./add_new_store_item.jsp">
 	<button type="button">Add New Store Item</button>
 	</a>
+	<a href="./index.jsp">
+	<button type="button">Back to Home</button>
+	</a>
 </body>
 </html>
