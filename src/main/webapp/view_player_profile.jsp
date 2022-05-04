@@ -28,11 +28,11 @@ ResultSet result = s.viewPlayerProfile(request.getParameter("player_id"));
 	<%} %>
 
 
-<a href="./delete_player_profile.jsp?playerID=<%=request.getParameter("player_id")%>"></a>
-<button type = "button">Delete Profile</button>
+<a href="./delete_player_profile.jsp?playerID=<%=request.getParameter("player_id")%>">
+<button type = "button">Delete Profile</button></a>
 
-<a href="./team_list.jsp"></a>
-<button type = "button">Back To Team List</button>
+<a href="./team_list.jsp">
+<button type = "button">Back To Team List</button></a>
 
 </body>
 </html>
