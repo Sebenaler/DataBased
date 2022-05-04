@@ -26,28 +26,23 @@ public class SQLRoutinesPeyton implements Serializable {
   }
   
   public Boolean adminDeleteAccount(String PlayerID) {
-	  int numEmps = -1;
 	  try {
 		  Connection con = openDBConnection();
 		  
-		  CallableStatement callStmt = con.prepareCall(" {call ADMINDELETEPROFILE(?) }");
+		  CallableStatement callStmt = con.prepareCall(" {call delete_Player(?) }");
 		  callStmt.setString(1,  PlayerID);
-		  callStmt.registerOutParameter(2,Types.INTEGER);
+
 		  callStmt.execute();
-		  numEmps = callStmt.getInt(2);
+
 		  callStmt.close();
-		  
+		  return true;
 		   
 	  }
 	  catch (Exception E) {
 		  E.printStackTrace();
-	  }
-	  if (numEmps == 1) {
-		  return true;
-	  }
-	  else {
 		  return false;
 	  }
+
   }
   
   public Boolean AdminCreateMatch(String matchID, String matchDate, String mediaLink, String game, String opponent, String teamName) {
