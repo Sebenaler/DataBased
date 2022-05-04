@@ -26,8 +26,8 @@
 	%>
 	<% if(result==true)
 	{
-		response.sendRedirect("team_list.jsp");
-		session.setAttribute("loggedInUser", id);
+		response.sendRedirect("index.jsp");
+		//session.setAttribute("loggedInUser", id);
 	}
 	else
 	{
