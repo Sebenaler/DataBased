@@ -25,6 +25,10 @@
 	<a href="./search_player.jsp"> 
 	<button type="button">Search for Player</button>
 	</a>
+	<%if(session.getAttribute("loggedInAdmin") != null){%>
+		<a href="./create_account.jsp"> 
+	<button type="button">Create Account</button>
+	</a><%} %>
 	
 	<div style="float:right">
 	<form align="right" name="form1" method="post" action="log_out.jsp">
