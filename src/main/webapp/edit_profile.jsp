@@ -25,5 +25,8 @@
 
     <button type="submit">Submit</button>
   </div>
+      <a href="./index.jsp"> 
+	<button type="button">Back Home</button>
+	</a>
 </body>
 </html>
